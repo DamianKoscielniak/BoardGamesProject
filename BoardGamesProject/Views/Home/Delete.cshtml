@@ -1,0 +1,55 @@
+﻿@model BoardGamesProject.Models.BoardGame
+
+@{
+    ViewBag.Title = "Usuwanie gry planszowej";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Czy na pewno chcesz usunąć tą grę planszową?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinimalAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinimalAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        @Html.ActionLink("Wróć do listy", "Index", null, new { @class = "btn btn-default" })
+    </div>
+    }
+</div>
